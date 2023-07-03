@@ -1,5 +1,16 @@
 # midjourney-api
 
+
+## 启动本地代码
+```
+
+/usr/local/opt/python@3.10/bin/python3.10 task_bot.py
+
+/usr/local/opt/python@3.10/bin/python3.10 server.py
+
+```
+
+
 基于 Discord 的 Midjourney API。
 
 **添加 Midjourney 违禁词入口 [issue](https://github.com/yokonsan/midjourney-api/issues/new?assignees=&labels=banned+prompt&projects=&template=banned_prompt_report.yml&title=Banned+prompt%3A+)**

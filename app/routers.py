@@ -1,5 +1,6 @@
 from fastapi import APIRouter, UploadFile
 
+from loguru import logger
 from lib.api import discord
 from lib.api.discord import TriggerType
 from util._queue import taskqueue
@@ -60,6 +61,7 @@ async def describe(body: TriggerDescribeIn):
     trigger_id = body.trigger_id
     trigger_type = TriggerType.describe.value
 
+    logger.debug(f"body: {body.dict()}")
     taskqueue.put(trigger_id, discord.describe, **body.dict())
     return {"trigger_id": trigger_id, "trigger_type": trigger_type}
 
@@ -97,4 +99,5 @@ async def queue_release(body: QueueReleaseIn):
     """bot 清除队列任务"""
     taskqueue.pop(body.trigger_id)
 
+    logger.debug(f"body: {body}")
     return body

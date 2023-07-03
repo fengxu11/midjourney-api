@@ -5,10 +5,10 @@ from loguru import logger
 
 from lib.api import CALLBACK_URL
 from util.fetch import fetch
-
+import json
 
 async def callback(data):
-    logger.debug(f"callback data: {data}")
+    logger.debug(f"callback data: {json.dumps(data,ensure_ascii=False)}")
     if not CALLBACK_URL:
         return
 
